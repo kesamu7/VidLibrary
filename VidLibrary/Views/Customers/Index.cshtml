@@ -1,0 +1,33 @@
+﻿@model VidLibrary.ViewModels.CustomerViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+<table style="width:100%;border:1px solid;border-collapse:collapse;">
+    <tr>
+        <th style="font-size:22px;border:1px solid;border-collapse:collapse;">Customer</th>
+        @foreach (var customer in Model.Customers)
+        {
+        <tr>
+            <td style="font-size:18px;border:1px solid;border-collapse:collapse;">
+                @customer.Name
+            </td>
+
+        </tr>
+
+
+    }
+
+
+
+
+
+    </table>
+
+
+
