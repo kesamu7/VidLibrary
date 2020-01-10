@@ -27,5 +27,21 @@ namespace VidLibrary.Controllers
             
             return View(viewModel);
         }
+
+
+        public ActionResult Details(int id)
+        {
+            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            return View(customer);
+        }
+
+        private IEnumerable<Customer> GetCustomers()
+        {
+            return new List<Customer>
+            {
+                new Customer {Id = 1, Name = "Samurai Champloo"},
+                new Customer {Id = 1, Name = "Mugen Jin" }
+            };
+        }
     }
 }

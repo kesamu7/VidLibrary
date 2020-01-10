@@ -12,8 +12,8 @@ namespace VidLibrary.Controllers
     {
         public ActionResult Index()
         {
-            var movie = new Movie() { Name = "Wall-E" };
-            var movie2 = new Movie() { Name = "Cowboy Bebop" };
+            var movie = new Movie() { Name = "Inception" };
+            var movie2 = new Movie() { Name = "Batman" };
 
             return View();
         }
