@@ -1,4 +1,4 @@
-﻿@model VidLibrary.ViewModels.CustomerViewModel
+﻿@model IEnumerable<VidLibrary.Models.Customer>
 
 
 @{
@@ -8,25 +8,29 @@
 
 <h2>Customers</h2>
 
-<table style="width:100%;border:1px solid;border-collapse:collapse;">
-    <tr>
-        <th style="font-size:22px;border:1px solid;border-collapse:collapse;">Customer</th>
-        @foreach (var customer in Model.Customers)
-        {
-        <tr>
-            <td style="font-size:18px;border:1px solid;border-collapse:collapse;">
-                @if (Model.Customers.Count == 0)
-                {
-                    <p>No customers in system yet.</p>
-                }
-                else
-                {
-                    @Html.ActionLink(customer.Name, "Details")
-                }
-            </td>
-        </tr>
-         }
-</table>
+@if (!Model.Any())
+{
+    <p>No customers yet!!</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Details","Customers",new { id = customer.Id },null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        
+}
 
 
 
